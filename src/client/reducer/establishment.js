@@ -10,7 +10,7 @@ const initialState = {
 export default (state = initialState, action) => {
     const {type, payload} = action
     switch (type) {
-        case REQUEST + ESTABLISHMENT:
+        case FETCH + ESTABLISHMENT:
             return {
                 ...state,
                 establishmentSelect: payload,

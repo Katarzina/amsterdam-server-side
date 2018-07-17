@@ -1,4 +1,5 @@
 // COMMON
+export const FETCH = "FETCH"
 export const REQUEST = 'REQUEST'
 export const EVENT = '_EVENT'
 export const UPDATE = 'UPDATE'
