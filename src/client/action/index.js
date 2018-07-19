@@ -1,7 +1,7 @@
 import {
-    UPDATE, ESTABLISHMENT, FILTER, LOAD, INFO, COORDINATE, TITLE, FETCH, USERS
+    UPDATE, ESTABLISHMENT, FILTER, LOAD, INFO, COORDINATE, TITLE, FETCH
 } from '../constants'
-import axios from 'axios'
+//import axios from 'axios'
 
 const A = (type) => (payload) => ({ type, payload });
 
@@ -20,11 +20,11 @@ export const receiveQuery = (type, payload) => ({
     payload
 })
 
-export const fetchEstablishments = () => async (dispatch) => {
+export const fetchEstablishments = () => async (dispatch, getState, api) => {
 
-    const res = await axios.get('http://localhost:3004/establishment');
+    const res = await api.get('/establishment');
     dispatch({
-        type: FETCH + USERS,
+        type: FETCH + ESTABLISHMENT,
         payload: res.data
     });
 };

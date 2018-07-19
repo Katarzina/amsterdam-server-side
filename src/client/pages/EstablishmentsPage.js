@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchEstablishments } from '../action';
+import {stateSelector, currentSelector} from '../reducers/establishment'
 //import { Helmet } from 'react-helmet';
 
 class EstablishmentsList extends Component {
 
     componentDidMount() {
-        this.props.fetchEstablishments();
+        //this.props.fetchEstablishments();
     }
 
     render() {
-        const {users = []} = this.props.users;
+        const {establishmentSelect = []} = this.props.establishment;
 
         return (
             <div>
                 Here's a big list of users:
                 <ul>
-                    { users.map( (user, index) => <li key={user.trcid + index}>{user.title}</li>) }
+                    { establishmentSelect.map( (restaurant, index) => <li key={restaurant.trcid + index}>{restaurant.title}</li>) }
                 </ul>
             </div>
         );
@@ -28,13 +29,9 @@ function loadData(store) {
     //console.log('i am cool')
 }
 
-/*export { loadData };
-export default connect(((state) => ({
-        users: state.users
-    }), {fetchEstablishments}))(EstablishmentsList);*/
-
 function mapStateToProps(state) {
-    return { users: state.users };
+    return {  establishment: stateSelector(state),
+        establishmentSelect: currentSelector(state) };
 }
 
 export default {
