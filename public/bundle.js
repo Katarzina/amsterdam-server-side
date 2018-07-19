@@ -38400,17 +38400,23 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+//import App from './App';
+
+//import {Route} from 'react-router-dom'
+
+
 var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Home = __webpack_require__(469);
+var _HomePage = __webpack_require__(540);
 
-var _Home2 = _interopRequireDefault(_Home);
+var _HomePage2 = _interopRequireDefault(_HomePage);
 
-var _EstablishmentsList = __webpack_require__(470);
+var _EstablishmentsPage = __webpack_require__(539);
 
-var _EstablishmentsList2 = _interopRequireDefault(_EstablishmentsList);
+var _EstablishmentsPage2 = _interopRequireDefault(_EstablishmentsPage);
 
 var _Hi = __webpack_require__(491);
 
@@ -38420,151 +38426,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /*import NotFoundPage from './pages/NotFoundPage';
 import AdminsListPage from './pages/AdminsListPage';*/
-
-//import {Route} from 'react-router-dom'
-exports.default = [{
-    component: _Home2.default,
+exports.default = [_extends({}, _HomePage2.default, {
     path: '/',
     exact: true
-}, {
-    loadData: _EstablishmentsList.loadData,
-    component: _EstablishmentsList2.default,
+}), _extends({}, _EstablishmentsPage2.default, {
     path: '/users'
-}];
-//import App from './App';
+})];
 
 /***/ }),
-/* 469 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(6);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Home = function Home() {
-
-    return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-            'div',
-            null,
-            'ku VERY kkkkkkkkkkkkkkkkkkk'
-        ),
-        _react2.default.createElement(
-            'button',
-            { onClick: function onClick() {
-                    return console.log('click me');
-                } },
-            'Click'
-        )
-    );
-};
-
-exports.default = Home;
-
-/***/ }),
-/* 470 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.loadData = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(6);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(182);
-
-var _action = __webpack_require__(471);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-//import { Helmet } from 'react-helmet';
-
-var EstablishmentsList = function (_Component) {
-    _inherits(EstablishmentsList, _Component);
-
-    function EstablishmentsList() {
-        _classCallCheck(this, EstablishmentsList);
-
-        return _possibleConstructorReturn(this, (EstablishmentsList.__proto__ || Object.getPrototypeOf(EstablishmentsList)).apply(this, arguments));
-    }
-
-    _createClass(EstablishmentsList, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            this.props.fetchEstablishments();
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _props$users$users = this.props.users.users,
-                users = _props$users$users === undefined ? [] : _props$users$users;
-
-
-            return _react2.default.createElement(
-                'div',
-                null,
-                'Here\'s a big list of users:',
-                _react2.default.createElement(
-                    'ul',
-                    null,
-                    users.map(function (user, index) {
-                        return _react2.default.createElement(
-                            'li',
-                            { key: user.trcid + index },
-                            user.title
-                        );
-                    })
-                )
-            );
-        }
-    }]);
-
-    return EstablishmentsList;
-}(_react.Component);
-
-function loadData(store) {
-    return store.dispatch((0, _action.fetchEstablishments)());
-    //console.log('i am cool')
-}
-
-/*export { loadData };
-export default connect(((state) => ({
-        users: state.users
-    }), {fetchEstablishments}))(EstablishmentsList);*/
-
-function mapStateToProps(state) {
-    return { users: state.users };
-}
-
-exports.loadData = loadData;
-exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchEstablishments: _action.fetchEstablishments })(EstablishmentsList);
-
-/***/ }),
+/* 469 */,
+/* 470 */,
 /* 471 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -41094,6 +40965,140 @@ exports.default = function () {
 
 //export const stateSelector = (state) => state['establishment'];
 //export const currentSelector = createSelector(stateSelector, (establishment) => establishment['establishmentSelect']);
+
+/***/ }),
+/* 539 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(182);
+
+var _action = __webpack_require__(471);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//import { Helmet } from 'react-helmet';
+
+var EstablishmentsList = function (_Component) {
+    _inherits(EstablishmentsList, _Component);
+
+    function EstablishmentsList() {
+        _classCallCheck(this, EstablishmentsList);
+
+        return _possibleConstructorReturn(this, (EstablishmentsList.__proto__ || Object.getPrototypeOf(EstablishmentsList)).apply(this, arguments));
+    }
+
+    _createClass(EstablishmentsList, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.props.fetchEstablishments();
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _props$users$users = this.props.users.users,
+                users = _props$users$users === undefined ? [] : _props$users$users;
+
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                'Here\'s a big list of users:',
+                _react2.default.createElement(
+                    'ul',
+                    null,
+                    users.map(function (user, index) {
+                        return _react2.default.createElement(
+                            'li',
+                            { key: user.trcid + index },
+                            user.title
+                        );
+                    })
+                )
+            );
+        }
+    }]);
+
+    return EstablishmentsList;
+}(_react.Component);
+
+function loadData(store) {
+    return store.dispatch((0, _action.fetchEstablishments)());
+    //console.log('i am cool')
+}
+
+/*export { loadData };
+export default connect(((state) => ({
+        users: state.users
+    }), {fetchEstablishments}))(EstablishmentsList);*/
+
+function mapStateToProps(state) {
+    return { users: state.users };
+}
+
+exports.default = {
+    loadData: loadData,
+    component: (0, _reactRedux.connect)(mapStateToProps, { fetchEstablishments: _action.fetchEstablishments })(EstablishmentsList)
+};
+
+/***/ }),
+/* 540 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Home = function Home() {
+
+    return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+            'div',
+            null,
+            'ku VERY kkkkkkkkkkkkkkkkkkk'
+        ),
+        _react2.default.createElement(
+            'button',
+            { onClick: function onClick() {
+                    return console.log('click me');
+                } },
+            'Click'
+        )
+    );
+};
+
+exports.default = {
+    component: Home
+};
 
 /***/ })
 /******/ ]);

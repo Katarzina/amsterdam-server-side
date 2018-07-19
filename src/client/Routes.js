@@ -1,20 +1,19 @@
 import React from 'react';
 //import App from './App';
-import Home from './pages/Home'
+import HomePage from './pages/HomePage'
 //import {Route} from 'react-router-dom'
-import EstablishmentPage, {loadData} from './pages/EstablishmentsList';
+import EstablishmentPage from './pages/EstablishmentsPage';
 import Hi from './pages/Hi';
 /*import NotFoundPage from './pages/NotFoundPage';
 import AdminsListPage from './pages/AdminsListPage';*/
 export default [
     {
-        component: Home,
+        ... HomePage,
         path: '/',
         exact: true
     },
     {
-        loadData: loadData,
-        component: EstablishmentPage,
+        ...EstablishmentPage,
         path: '/users'
     }
 ];

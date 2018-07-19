@@ -37,8 +37,10 @@ function mapStateToProps(state) {
     return { users: state.users };
 }
 
-export { loadData };
-export default connect(mapStateToProps, { fetchEstablishments })(EstablishmentsList)
+export default {
+    loadData,
+    component: connect(mapStateToProps, {fetchEstablishments})(EstablishmentsList)
+}
 
 
 
