@@ -1,5 +1,5 @@
 import {
-    REQUEST, UPDATE, ESTABLISHMENT, TITLE, FILTER, CITY
+    REQUEST, UPDATE, ESTABLISHMENT, TITLE, FILTER, CITY, FETCH
 } from '../constants';
 import {createSelector} from 'reselect'
 
