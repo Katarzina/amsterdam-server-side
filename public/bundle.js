@@ -38547,9 +38547,9 @@ var EstablishmentsList = function (_Component) {
     return EstablishmentsList;
 }(_react.Component);
 
-function loadData() {
-    //return store.dispatch(fetchEstablishments());
-    console.log('i am cool');
+function loadData(store) {
+    return store.dispatch((0, _action.fetchEstablishments)());
+    //console.log('i am cool')
 }
 
 /*export { loadData };

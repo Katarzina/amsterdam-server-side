@@ -23,9 +23,9 @@ class EstablishmentsList extends Component {
     }
 }
 
-function loadData() {
-    //return store.dispatch(fetchEstablishments());
-    console.log('i am cool')
+function loadData(store) {
+    return store.dispatch(fetchEstablishments());
+    //console.log('i am cool')
 }
 
 /*export { loadData };

@@ -15,10 +15,13 @@ app.use(express.static('public'));
 app.get('*', (req, res) => {
     const store = createStore();
     //console.log(matchRoutes(Routes, req.path))
-    matchRoutes(Routes, req.path).map(({ route }) => {
+    const promises = matchRoutes(Routes, req.path).map(({ route }) => {
         return route.loadData ? route.loadData(store) : null;
     })
-    res.send(renderer(req, store));
+    console.log(promises);
+    Promise.all(promises).then(() => {
+        res.send(renderer(req, store));
+    })
 } )
 
 app.listen(3000, () => console.log('listen on port 3000'))
