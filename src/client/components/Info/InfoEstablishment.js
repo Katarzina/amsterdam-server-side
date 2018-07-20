@@ -20,10 +20,13 @@ const InfoEstablishment = ({restaurantDetails}) => {
 }
 
 
-/*InfoEstablishment.propTypes = {
-    value: PropTypes.string,
-    currency: PropTypes.string,
-    rate: PropTypes.number
-}*/
+InfoEstablishment.propTypes = {
+    restaurantDetails: PropTypes.object,
+    title: PropTypes.string,
+    city: PropTypes.string,
+    adress: PropTypes.string,
+    urls: PropTypes.string,
+    media: PropTypes.array
+}
 
 export default InfoEstablishment

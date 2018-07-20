@@ -7,13 +7,14 @@ import { filterByTitle } from '../share/share'
 
 class SearchBarTitle extends Component {
 
-    /*PropTypes = {
+    PropTypes = {
         updateFilterEstablishment: PropTypes.func,
-        establishmentSelect: PropTypes.array
-    }*/
+        updateTitle: PropTypes.func,
+        dataUnchangable: PropTypes.object
+    }
 
     dataSearch = e => {
-        const { establishment: {dataUnchangable, establishmentSelect}, updateFilterEstablishment, updateTitle } = this.props;
+        const { establishment: {dataUnchangable}, updateFilterEstablishment, updateTitle } = this.props;
         const value = e.target.value.toLowerCase();
         const filterEstablishment = filterByTitle(dataUnchangable, value);
         updateTitle(value);

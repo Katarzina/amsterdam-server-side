@@ -1,21 +1,22 @@
 import React, {Component} from 'react'
-//import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { updateArrayEstablishment, loadInfoEstablishment, loadCoordinate } from '../action'
 import {connect} from 'react-redux'
 import {stateSelector, currentSelector} from '../reducers/establishment'
 import {restaurantDetailsSelector, coordinate} from '../reducers/details'
 import InfoEstablishment from '../components/Info/InfoEstablishment'
 import { selectedEventSelector } from "../reducers/events";
-import { Helmet } from 'react-helmet';
 
 const Item = ({children}) => ( <td className="item">{children}</td> )
 
 class SortTable extends Component {
-    /*static propTypes = {
-        currencyRate: PropTypes.array,
-        rate: PropTypes.object,
-        updateRate: PropTypes.func
-    }*/
+    static propTypes = {
+        loadInfoEstablishment: PropTypes.func,
+        establishmentSelect: PropTypes.object,
+        updateArrayEstablishment: PropTypes.func,
+        loadCoordinate: PropTypes.func,
+        restaurantDetails: PropTypes.object
+    }
 
     sortedCondition = { location: { zipcode: true }, dates: { startdate: true }  }
 
@@ -76,7 +77,7 @@ class SortTable extends Component {
     render() {
 
         const { restaurantDetails, establishment: {establishmentSelect } } = this.props
-        //console.log("loadInfo",restaurantDetails);
+
         return (
                 <div>
                     <h1>Establishments info</h1>

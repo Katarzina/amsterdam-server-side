@@ -10,13 +10,18 @@ Change directories.
 Install dependencies.
 `npm i`
 
+2. Run json server for data 
+
+Change path cd /src/client/data 
+
+Run `json-server --watch db.json --port 3004`
+
+Make test `http://localhost:3004/db`
+
+3. Change path on /
+
 Start localhost server.
 `npm run dev`
 
 Viewable at localhost:3000 
 
-2. Change path /src/client/data 
-
-Run `json-server --watch db.json --port 3004`
-
-Make test `http://localhost:3004/db`

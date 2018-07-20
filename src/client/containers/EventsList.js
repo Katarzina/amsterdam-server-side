@@ -1,16 +1,14 @@
 import React, {Component} from 'react'
-//import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {stateSelector as eventSelector} from '../reducers/events'
 
 const Item = ({children}) => ( <td className="item">{children}</td> )
 
 class EventsList extends Component {
-   /* static propTypes = {
-        currencyRate: PropTypes.array,
-        rate: PropTypes.object,
-        updateRate: PropTypes.func
-    }*/
+    static propTypes = {
+        eventsSelect: PropTypes.object,
+    }
 
     render() {
 

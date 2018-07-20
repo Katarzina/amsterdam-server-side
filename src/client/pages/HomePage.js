@@ -4,7 +4,7 @@ const Home = () => {
 
     return (
         <div>
-        <div>ku VERY kkkkkkkkkkkkkkkkkkk</div>
+        <div>Hello world - first server side rendering Home Page</div>
         <button onClick={() => console.log('click me')}>Click</button>
     </div>
     )
