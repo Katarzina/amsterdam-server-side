@@ -85,65 +85,6 @@ module.exports = require("react-redux");
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.currentSelector = exports.stateSelector = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _constants = __webpack_require__(4);
-
-var _reselect = __webpack_require__(7);
-
-var initialState = {
-    isLoaded: false
-};
-
-exports.default = function () {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-    var action = arguments[1];
-    var type = action.type,
-        payload = action.payload;
-
-    switch (type) {
-        case _constants.FETCH + _constants.ESTABLISHMENT:
-            return _extends({}, state, {
-                establishmentSelect: payload,
-                dataUnchangable: payload,
-                isLoaded: true
-            });
-        case _constants.UPDATE + _constants.ESTABLISHMENT:
-            return _extends({}, state, {
-                establishmentSelect: payload
-            });
-        case _constants.UPDATE + _constants.FILTER + _constants.ESTABLISHMENT:
-            return _extends({}, state, {
-                establishmentSelect: payload
-            });
-        case _constants.UPDATE + _constants.FILTER + _constants.TITLE:
-            return _extends({}, state, {
-                filterTitle: payload
-            });
-        default:
-            return state;
-    }
-};
-
-var stateSelector = exports.stateSelector = function stateSelector(state) {
-    return state['establishment'];
-};
-var currentSelector = exports.currentSelector = (0, _reselect.createSelector)(stateSelector, function (establishment) {
-    return establishment['establishmentSelect'];
-});
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 exports.fetchEvents = exports.fetchEstablishments = exports.receiveQuery = exports.updateTitle = exports.loadCoordinate = exports.loadInfoEstablishment = exports.updateFilterEstablishment = exports.updateArrayEstablishment = undefined;
 
 var _constants = __webpack_require__(4);
@@ -242,6 +183,65 @@ var fetchEvents = exports.fetchEvents = function fetchEvents() {
 };
 
 /***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.currentSelector = exports.stateSelector = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _constants = __webpack_require__(4);
+
+var _reselect = __webpack_require__(9);
+
+var initialState = {
+    isLoaded: false
+};
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+    var action = arguments[1];
+    var type = action.type,
+        payload = action.payload;
+
+    switch (type) {
+        case _constants.FETCH + _constants.ESTABLISHMENT:
+            return _extends({}, state, {
+                establishmentSelect: payload,
+                dataUnchangable: payload,
+                isLoaded: true
+            });
+        case _constants.UPDATE + _constants.ESTABLISHMENT:
+            return _extends({}, state, {
+                establishmentSelect: payload
+            });
+        case _constants.UPDATE + _constants.FILTER + _constants.ESTABLISHMENT:
+            return _extends({}, state, {
+                establishmentSelect: payload
+            });
+        case _constants.UPDATE + _constants.FILTER + _constants.TITLE:
+            return _extends({}, state, {
+                filterTitle: payload
+            });
+        default:
+            return state;
+    }
+};
+
+var stateSelector = exports.stateSelector = function stateSelector(state) {
+    return state['establishment'];
+};
+var currentSelector = exports.currentSelector = (0, _reselect.createSelector)(stateSelector, function (establishment) {
+    return establishment['establishmentSelect'];
+});
+
+/***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -271,6 +271,12 @@ var DATA_EVENTS = exports.DATA_EVENTS = './events-data.json';
 
 /***/ }),
 /* 5 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-helmet");
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -310,79 +316,7 @@ var filterByTitle = exports.filterByTitle = function filterByTitle(data, value) 
 };
 
 /***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-router-config");
-
-/***/ }),
 /* 7 */
-/***/ (function(module, exports) {
-
-module.exports = require("reselect");
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-module.exports = require("prop-types");
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.coordinateSelector = exports.restaurantDetailsSelector = exports.stateSelector = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _constants = __webpack_require__(4);
-
-var _get = __webpack_require__(13);
-
-var _get2 = _interopRequireDefault(_get);
-
-var _reselect = __webpack_require__(7);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function () {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-    var action = arguments[1];
-    var type = action.type,
-        payload = action.payload;
-
-    switch (type) {
-        case _constants.LOAD + _constants.INFO:
-            return _extends({}, state, {
-                restaurantDetails: payload
-            });
-        case _constants.LOAD + _constants.COORDINATE:
-            return _extends({}, state, {
-                coordinate: payload
-            });
-        default:
-            return state;
-    }
-};
-
-var stateSelector = exports.stateSelector = function stateSelector(state) {
-    return (0, _get2.default)(state, 'details', {});
-};
-var restaurantDetailsSelector = exports.restaurantDetailsSelector = (0, _reselect.createSelector)(stateSelector, function (reducer) {
-    return (0, _get2.default)(reducer, 'restaurantDetails', {});
-});
-var coordinateSelector = exports.coordinateSelector = (0, _reselect.createSelector)(stateSelector, function (reducer) {
-    return (0, _get2.default)(reducer, 'coordinate', {});
-});
-
-/***/ }),
-/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -397,11 +331,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _constants = __webpack_require__(4);
 
-var _get = __webpack_require__(13);
+var _get = __webpack_require__(14);
 
 var _get2 = _interopRequireDefault(_get);
 
-var _reselect = __webpack_require__(7);
+var _reselect = __webpack_require__(9);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -430,6 +364,24 @@ var stateSelector = exports.stateSelector = function stateSelector(state) {
 var selectedEventSelector = exports.selectedEventSelector = (0, _reselect.createSelector)(stateSelector, function (reducer) {
     return (0, _get2.default)(reducer, 'eventsSelect', {});
 });
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-router-config");
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports = require("reselect");
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = require("prop-types");
 
 /***/ }),
 /* 11 */
@@ -470,7 +422,7 @@ var _EstablishmentsPage = __webpack_require__(25);
 
 var _EstablishmentsPage2 = _interopRequireDefault(_EstablishmentsPage);
 
-var _EventsPage = __webpack_require__(44);
+var _EventsPage = __webpack_require__(36);
 
 var _EventsPage2 = _interopRequireDefault(_EventsPage);
 
@@ -489,21 +441,69 @@ exports.default = [_extends({}, _AppRoutes2.default, {
 
 /***/ }),
 /* 13 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = require("lodash/get");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.coordinateSelector = exports.restaurantDetailsSelector = exports.stateSelector = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _constants = __webpack_require__(4);
+
+var _get = __webpack_require__(14);
+
+var _get2 = _interopRequireDefault(_get);
+
+var _reselect = __webpack_require__(9);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+    var action = arguments[1];
+    var type = action.type,
+        payload = action.payload;
+
+    switch (type) {
+        case _constants.LOAD + _constants.INFO:
+            return _extends({}, state, {
+                restaurantDetails: payload
+            });
+        case _constants.LOAD + _constants.COORDINATE:
+            return _extends({}, state, {
+                coordinate: payload
+            });
+        default:
+            return state;
+    }
+};
+
+var stateSelector = exports.stateSelector = function stateSelector(state) {
+    return (0, _get2.default)(state, 'details', {});
+};
+var restaurantDetailsSelector = exports.restaurantDetailsSelector = (0, _reselect.createSelector)(stateSelector, function (reducer) {
+    return (0, _get2.default)(reducer, 'restaurantDetails', {});
+});
+var coordinateSelector = exports.coordinateSelector = (0, _reselect.createSelector)(stateSelector, function (reducer) {
+    return (0, _get2.default)(reducer, 'coordinate', {});
+});
 
 /***/ }),
 /* 14 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-google-maps");
+module.exports = require("lodash/get");
 
 /***/ }),
 /* 15 */
 /***/ (function(module, exports) {
 
-module.exports = require("redux");
+module.exports = require("react-google-maps");
 
 /***/ }),
 /* 16 */
@@ -526,13 +526,13 @@ var _createStore = __webpack_require__(39);
 
 var _createStore2 = _interopRequireDefault(_createStore);
 
-var _reactRouterConfig = __webpack_require__(6);
+var _reactRouterConfig = __webpack_require__(8);
 
 var _Routes = __webpack_require__(12);
 
 var _Routes2 = _interopRequireDefault(_Routes);
 
-var _expressHttpProxy = __webpack_require__(43);
+var _expressHttpProxy = __webpack_require__(40);
 
 var _expressHttpProxy2 = _interopRequireDefault(_expressHttpProxy);
 
@@ -565,7 +565,17 @@ app.get('*', function (req, res) {
     });
     console.log(promises);
     Promise.all(promises).then(function () {
-        res.send((0, _renderer2.default)(req, store));
+        var context = {};
+        var content = (0, _renderer2.default)(req, store, context);
+
+        if (context.url) {
+            return res.redirect(301, context.url);
+        }
+        if (context.notFound) {
+            res.status(404);
+        }
+
+        res.send(content);
     });
 });
 
@@ -610,15 +620,17 @@ var _Routes2 = _interopRequireDefault(_Routes);
 
 var _reactRedux = __webpack_require__(1);
 
-var _reactRouterConfig = __webpack_require__(6);
+var _reactRouterConfig = __webpack_require__(8);
 
 var _serializeJavascript = __webpack_require__(38);
 
 var _serializeJavascript2 = _interopRequireDefault(_serializeJavascript);
 
+var _reactHelmet = __webpack_require__(5);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (req, store) {
+exports.default = function (req, store, context) {
     var content = (0, _server.renderToString)(_react2.default.createElement(
         _reactRedux.Provider,
         { store: store },
@@ -632,7 +644,10 @@ exports.default = function (req, store) {
             )
         )
     ));
-    return '\n        <html>\n        <head>\n            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">\n            <link rel="stylesheet" href="/assets/main.css">     \n            <link rel="stylesheet" href="https://unpkg.com/react-select@1.2.1/dist/react-select.css">\n        </head>\n        <title>SSR React Redux applicaton</title>\n        <body>\n            <div id="root">' + content + '</div>\n            <script>\n                window.INITIAL_STATE = ' + (0, _serializeJavascript2.default)(store.getState()) + '\n            </script>\n            <script src=\'bundle.js\'></script>\n        </body>\n        </html>\n    ';
+
+    var helmet = _reactHelmet.Helmet.renderStatic();
+
+    return '\n        <html>\n        <head>\n            ' + helmet.title.toString() + '\n            ' + helmet.meta.toString() + '\n            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">\n            <link rel="stylesheet" href="/assets/main.css">     \n            <link rel="stylesheet" href="https://unpkg.com/react-select@1.2.1/dist/react-select.css">\n        </head>\n        <title>SSR React Redux applicaton</title>\n        <body>\n            <div id="root">' + content + '</div>\n            <script>\n                window.INITIAL_STATE = ' + (0, _serializeJavascript2.default)(store.getState()) + '\n            </script>\n            <script src=\'bundle.js\'></script>\n        </body>\n        </html>\n    ';
 };
 
 /***/ }),
@@ -656,15 +671,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterConfig = __webpack_require__(6);
+var _reactRouterConfig = __webpack_require__(8);
 
 var _Header = __webpack_require__(22);
 
 var _Header2 = _interopRequireDefault(_Header);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _action = __webpack_require__(2);
 
-//import { fetchCurrentUser } from './actions';
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var AppRoutes = function AppRoutes(_ref) {
     var route = _ref.route;
@@ -678,7 +693,11 @@ var AppRoutes = function AppRoutes(_ref) {
 };
 
 exports.default = {
-    component: AppRoutes
+    component: AppRoutes,
+    loadData: function loadData(_ref2) {
+        var dispatch = _ref2.dispatch;
+        return dispatch((0, _action.fetchEstablishments)(), (0, _action.fetchEvents)());
+    }
 };
 
 /***/ }),
@@ -804,7 +823,7 @@ var NotFoundPage = function NotFoundPage(_ref) {
     return _react2.default.createElement(
         'h1',
         null,
-        'Ooops, route not found.'
+        'Ooops, route or page not found.'
     );
 };
 
@@ -831,9 +850,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(1);
 
-var _action = __webpack_require__(3);
+var _action = __webpack_require__(2);
 
-var _establishment = __webpack_require__(2);
+var _establishment = __webpack_require__(3);
+
+var _reactHelmet = __webpack_require__(5);
 
 var _SearchBarTitle = __webpack_require__(26);
 
@@ -847,11 +868,11 @@ var _SortTable = __webpack_require__(29);
 
 var _SortTable2 = _interopRequireDefault(_SortTable);
 
-var _EventsInfo = __webpack_require__(32);
+var _EventsInfo = __webpack_require__(31);
 
 var _EventsInfo2 = _interopRequireDefault(_EventsInfo);
 
-var _MapContainer = __webpack_require__(33);
+var _MapContainer = __webpack_require__(32);
 
 var _MapContainer2 = _interopRequireDefault(_MapContainer);
 
@@ -862,8 +883,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-//import { Helmet } from 'react-helmet';
-
 
 var EstablishmentsList = function (_Component) {
     _inherits(EstablishmentsList, _Component);
@@ -875,6 +894,31 @@ var EstablishmentsList = function (_Component) {
     }
 
     _createClass(EstablishmentsList, [{
+        key: 'head',
+
+
+        /*componentDidMount() {
+            this.props.fetchEstablishments();
+        }*/
+
+        value: function head() {
+            return _react2.default.createElement(
+                _reactHelmet.Helmet,
+                null,
+                _react2.default.createElement(
+                    'title',
+                    null,
+                    'Establishment App Loaded'
+                ),
+                _react2.default.createElement(
+                    'description',
+                    null,
+                    'Establishment App Loaded'
+                ),
+                _react2.default.createElement('meta', { property: 'og:title', content: 'Establishment App' })
+            );
+        }
+    }, {
         key: 'render',
         value: function render() {
             var _props$establishment$ = this.props.establishment.establishmentSelect,
@@ -884,6 +928,7 @@ var EstablishmentsList = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 { className: 'container-fluid' },
+                this.head(),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
@@ -941,15 +986,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(1);
 
-var _propTypes = __webpack_require__(8);
+var _propTypes = __webpack_require__(10);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _action = __webpack_require__(3);
+var _action = __webpack_require__(2);
 
-var _establishment = __webpack_require__(2);
+var _establishment = __webpack_require__(3);
 
-var _share = __webpack_require__(5);
+var _share = __webpack_require__(6);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1040,19 +1085,19 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(1);
 
-var _propTypes = __webpack_require__(8);
+var _propTypes = __webpack_require__(10);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _action = __webpack_require__(3);
+var _action = __webpack_require__(2);
 
-var _establishment = __webpack_require__(2);
+var _establishment = __webpack_require__(3);
 
 var _reactSelect = __webpack_require__(28);
 
 var _reactSelect2 = _interopRequireDefault(_reactSelect);
 
-var _share = __webpack_require__(5);
+var _share = __webpack_require__(6);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1198,19 +1243,21 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _action = __webpack_require__(3);
+var _action = __webpack_require__(2);
 
 var _reactRedux = __webpack_require__(1);
 
-var _establishment = __webpack_require__(2);
+var _establishment = __webpack_require__(3);
 
-var _details = __webpack_require__(9);
+var _details = __webpack_require__(13);
 
 var _InfoEstablishment = __webpack_require__(30);
 
 var _InfoEstablishment2 = _interopRequireDefault(_InfoEstablishment);
 
-var _events = __webpack_require__(10);
+var _events = __webpack_require__(7);
+
+var _reactHelmet = __webpack_require__(5);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1444,7 +1491,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(8);
+var _propTypes = __webpack_require__(10);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -1498,8 +1545,7 @@ var InfoEstablishment = function InfoEstablishment(_ref) {
 exports.default = InfoEstablishment;
 
 /***/ }),
-/* 31 */,
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1517,11 +1563,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(1);
 
-var _share = __webpack_require__(5);
+var _share = __webpack_require__(6);
 
-var _details = __webpack_require__(9);
+var _details = __webpack_require__(13);
 
-var _events = __webpack_require__(10);
+var _events = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1646,7 +1692,7 @@ exports.default = (0, _reactRedux.connect)(function (state) {
 })(EventsInfo);
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1662,13 +1708,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Map = __webpack_require__(34);
+var _Map = __webpack_require__(33);
 
 var _Map2 = _interopRequireDefault(_Map);
 
 var _reactRedux = __webpack_require__(1);
 
-var _establishment = __webpack_require__(2);
+var _establishment = __webpack_require__(3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1715,7 +1761,7 @@ exports.default = (0, _reactRedux.connect)(function (state) {
 })(MapContainer);
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1729,13 +1775,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactGoogleMaps = __webpack_require__(14);
+var _reactGoogleMaps = __webpack_require__(15);
 
-var _MarkerMap = __webpack_require__(35);
+var _MarkerMap = __webpack_require__(34);
 
 var _MarkerMap2 = _interopRequireDefault(_MarkerMap);
 
-var _share = __webpack_require__(5);
+var _share = __webpack_require__(6);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1767,7 +1813,7 @@ var Map = (0, _reactGoogleMaps.withScriptjs)((0, _reactGoogleMaps.withGoogleMap)
 exports.default = Map;
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1783,9 +1829,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactGoogleMaps = __webpack_require__(14);
+var _reactGoogleMaps = __webpack_require__(15);
 
-var _Icon = __webpack_require__(36);
+var _Icon = __webpack_require__(35);
 
 var _Icon2 = _interopRequireDefault(_Icon);
 
@@ -1822,7 +1868,7 @@ var MarkerMap = function (_React$Component) {
 exports.default = MarkerMap;
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1847,104 +1893,7 @@ exports.default = function (props) {
 };
 
 /***/ }),
-/* 37 */,
-/* 38 */
-/***/ (function(module, exports) {
-
-module.exports = require("serialize-javascript");
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _redux = __webpack_require__(15);
-
-var _reduxThunk = __webpack_require__(40);
-
-var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
-
-var _axios = __webpack_require__(41);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-var _reducers = __webpack_require__(42);
-
-var _reducers2 = _interopRequireDefault(_reducers);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function (req) {
-    var axiosInstance = _axios2.default.create({
-        baseURL: 'http://localhost:3004'
-    });
-
-    var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMiddleware)(_reduxThunk2.default.withExtraArgument(axiosInstance)));
-
-    return store;
-};
-
-/***/ }),
-/* 40 */
-/***/ (function(module, exports) {
-
-module.exports = require("redux-thunk");
-
-/***/ }),
-/* 41 */
-/***/ (function(module, exports) {
-
-module.exports = require("axios");
-
-/***/ }),
-/* 42 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _redux = __webpack_require__(15);
-
-var _establishment = __webpack_require__(2);
-
-var _establishment2 = _interopRequireDefault(_establishment);
-
-var _events = __webpack_require__(10);
-
-var _events2 = _interopRequireDefault(_events);
-
-var _details = __webpack_require__(9);
-
-var _details2 = _interopRequireDefault(_details);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var rootReducer = (0, _redux.combineReducers)({
-	establishment: _establishment2.default,
-	details: _details2.default,
-	events: _events2.default
-});
-
-exports.default = rootReducer;
-
-/***/ }),
-/* 43 */
-/***/ (function(module, exports) {
-
-module.exports = require("express-http-proxy");
-
-/***/ }),
-/* 44 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1962,11 +1911,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(1);
 
-var _action = __webpack_require__(3);
+var _action = __webpack_require__(2);
 
-var _events = __webpack_require__(10);
+var _events = __webpack_require__(7);
 
-var _EventsList = __webpack_require__(45);
+var _reactHelmet = __webpack_require__(5);
+
+var _EventsList = __webpack_require__(37);
 
 var _EventsList2 = _interopRequireDefault(_EventsList);
 
@@ -1977,8 +1928,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-//import { Helmet } from 'react-helmet';
-
 
 var EventsPage = function (_Component) {
     _inherits(EventsPage, _Component);
@@ -1990,6 +1939,26 @@ var EventsPage = function (_Component) {
     }
 
     _createClass(EventsPage, [{
+        key: 'head',
+
+
+        /*componentDidMount() {
+            this.props.fetchEvents();
+        }*/
+
+        value: function head() {
+            return _react2.default.createElement(
+                _reactHelmet.Helmet,
+                null,
+                _react2.default.createElement(
+                    'title',
+                    null,
+                    'Events App Loaded'
+                ),
+                _react2.default.createElement('meta', { property: 'og:title', content: 'Events App' })
+            );
+        }
+    }, {
         key: 'render',
         value: function render() {
             var _props$events$eventsS = this.props.events.eventsSelect,
@@ -2005,6 +1974,7 @@ var EventsPage = function (_Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'col-md-12' },
+                        this.head(),
                         _react2.default.createElement(_EventsList2.default, null)
                     )
                 )
@@ -2030,7 +2000,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 45 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2048,7 +2018,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(1);
 
-var _events = __webpack_require__(10);
+var _events = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2158,6 +2128,108 @@ exports.default = (0, _reactRedux.connect)(function (state) {
         events: (0, _events.stateSelector)(state)
     };
 })(EventsList);
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports) {
+
+module.exports = require("serialize-javascript");
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _redux = __webpack_require__(41);
+
+var _reduxThunk = __webpack_require__(42);
+
+var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+
+var _axios = __webpack_require__(43);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _reducers = __webpack_require__(44);
+
+var _reducers2 = _interopRequireDefault(_reducers);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (req) {
+    var axiosInstance = _axios2.default.create({
+        baseURL: 'http://localhost:3004'
+    });
+
+    var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMiddleware)(_reduxThunk2.default.withExtraArgument(axiosInstance)));
+
+    return store;
+};
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports) {
+
+module.exports = require("express-http-proxy");
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-thunk");
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports) {
+
+module.exports = require("axios");
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _redux = __webpack_require__(41);
+
+var _establishment = __webpack_require__(3);
+
+var _establishment2 = _interopRequireDefault(_establishment);
+
+var _events = __webpack_require__(7);
+
+var _events2 = _interopRequireDefault(_events);
+
+var _details = __webpack_require__(13);
+
+var _details2 = _interopRequireDefault(_details);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var rootReducer = (0, _redux.combineReducers)({
+	establishment: _establishment2.default,
+	details: _details2.default,
+	events: _events2.default
+});
+
+exports.default = rootReducer;
 
 /***/ })
 /******/ ]);

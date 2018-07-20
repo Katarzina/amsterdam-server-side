@@ -6,6 +6,7 @@ import {stateSelector, currentSelector} from '../reducers/establishment'
 import {restaurantDetailsSelector, coordinate} from '../reducers/details'
 import InfoEstablishment from '../components/Info/InfoEstablishment'
 import { selectedEventSelector } from "../reducers/events";
+import { Helmet } from 'react-helmet';
 
 const Item = ({children}) => ( <td className="item">{children}</td> )
 

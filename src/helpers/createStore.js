@@ -5,7 +5,7 @@ import reducers from '../client/reducers';
 
 export default req => {
     const axiosInstance = axios.create({
-        baseURL: 'http://localhost:3004',
+        baseURL: 'http://localhost:3004'
     });
 
     const store = createStore(

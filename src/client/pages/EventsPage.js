@@ -2,10 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchEvents } from '../action';
 import {stateSelector, selectedEventSelector} from '../reducers/events'
-//import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import EventsList from '../containers/EventsList'
 
 class EventsPage extends Component {
+
+    /*componentDidMount() {
+        this.props.fetchEvents();
+    }*/
+
+    head() {
+        return (
+            <Helmet>
+                <title>Events App Loaded</title>
+                <meta property="og:title" content="Events App" />
+            </Helmet>
+        );
+    }
 
     render() {
         const {eventsSelect = []} = this.props.events;
@@ -14,6 +27,7 @@ class EventsPage extends Component {
             <div className="container-fluid" >
             <div className="row">
             <div className="col-md-12">
+                {this.head()}
                 <EventsList />
             </div>
             </div>
