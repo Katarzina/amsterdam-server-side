@@ -1,7 +1,7 @@
 // COMMON
 export const FETCH = "FETCH"
 export const REQUEST = 'REQUEST'
-export const EVENT = '_EVENT'
+export const EVENTS = '_EVENTS'
 export const UPDATE = 'UPDATE'
 export const ESTABLISHMENT = '_ESTABLISHMENT'
 export const FILTER = '_FILTER'

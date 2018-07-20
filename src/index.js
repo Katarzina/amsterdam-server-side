@@ -11,6 +11,8 @@ import Home from './client/component/Home';*/
 
 const app = express();
 
+app.use('/assets', express.static('assets'));
+
 app.use(
     '/api',
     proxy('http://localhost:3004', {

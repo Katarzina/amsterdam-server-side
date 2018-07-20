@@ -30,7 +30,11 @@ module.exports = {
             {
                 test: /\.svg$/,
                 loader: 'raw-loader'
-            }
+            },
+            {
+                test: /\.(ttf|eot|otf|svg|png)$/,
+                loader: 'file-loader'
+            },
         ]
     }
 };

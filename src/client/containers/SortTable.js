@@ -2,10 +2,10 @@ import React, {Component} from 'react'
 //import PropTypes from 'prop-types'
 import { updateArrayEstablishment, loadInfoEstablishment, loadCoordinate } from '../action'
 import {connect} from 'react-redux'
-import {stateSelector, currentSelector} from '../reducer/establishment'
-import {restaurantDetailsSelector, coordinate} from '../reducer/details'
+import {stateSelector, currentSelector} from '../reducers/establishment'
+import {restaurantDetailsSelector, coordinate} from '../reducers/details'
 import InfoEstablishment from '../components/Info/InfoEstablishment'
-import { selectedEventSelector } from "../reducer/events";
+import { selectedEventSelector } from "../reducers/events";
 
 const Item = ({children}) => ( <td className="item">{children}</td> )
 
@@ -42,7 +42,7 @@ class SortTable extends Component {
 
                 const arraySplit = aString => aString.split('-')
 
-                const checkType = value => (typeof value == 'undefined') ? new Date(1970, 0, 1) :
+                const checkType = value => (typeof value === 'undefined') ? new Date(1970, 0, 1) :
                                            (typeof value === 'string') ? ( ((value.includes('-'))) ?
                                            (valueArray = arraySplit(value), new Date(+valueArray[2], +valueArray[1], +valueArray[0]))
                                            : value ) : value;

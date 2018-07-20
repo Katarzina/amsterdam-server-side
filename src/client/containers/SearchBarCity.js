@@ -2,9 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {updateFilterEstablishment} from '../action'
-import {stateSelector, currentSelector} from '../reducer/establishment'
+import {stateSelector, currentSelector} from '../reducers/establishment'
 import Select from 'react-select';
-//import 'react-select/dist/react-select.css';
 import { filterByTitle } from '../share/share'
 
 // array Cities from json object

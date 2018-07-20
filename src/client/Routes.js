@@ -2,11 +2,8 @@ import React from 'react';
 import AppRoutes from './AppRoutes';
 import HomePage from './pages/HomePage'
 import NotFoundPage from './pages/NotFoundPage';
-//import {Route} from 'react-router-dom'
 import EstablishmentPage from './pages/EstablishmentsPage';
-import Hi from './pages/Hi';
-/*import NotFoundPage from './pages/NotFoundPage';
-import AdminsListPage from './pages/AdminsListPage';*/
+import EventsPage from './pages/EventsPage';
 export default [
     {
         ...AppRoutes,
@@ -19,6 +16,10 @@ export default [
             {
                 ...EstablishmentPage,
                 path: '/establishment'
+            },
+            {
+                ...EventsPage,
+                path: '/events'
             },
             {
                 ...NotFoundPage

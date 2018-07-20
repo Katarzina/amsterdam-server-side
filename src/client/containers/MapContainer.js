@@ -2,7 +2,7 @@
 import React from "react";
 import Map from "../components/Map/Map";
 import {connect} from 'react-redux'
-import {stateSelector, currentSelector} from '../reducer/establishment'
+import {stateSelector, currentSelector} from '../reducers/establishment'
 
 class MapContainer extends React.Component {
 

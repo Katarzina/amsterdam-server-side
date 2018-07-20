@@ -1,16 +1,15 @@
 import {
-    EVENT, REQUEST
+    EVENTS, FETCH
 } from '../constants';
 import get from "lodash/get";
 import {createSelector} from 'reselect';
-import {merge} from '../utils';
 
 const initialState = {}
 export default (state = initialState, action) => {
     const {type, payload} = action
 
     switch (type) {
-        case REQUEST + EVENT:
+        case FETCH + EVENTS:
             return {
                 ...state,
                 eventsSelect: payload

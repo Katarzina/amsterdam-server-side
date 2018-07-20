@@ -1,5 +1,5 @@
 import {
-    UPDATE, ESTABLISHMENT, FILTER, LOAD, INFO, COORDINATE, TITLE, FETCH
+    UPDATE, ESTABLISHMENT, FILTER, LOAD, INFO, COORDINATE, TITLE, FETCH, EVENTS
 } from '../constants'
 //import axios from 'axios'
 
@@ -25,6 +25,15 @@ export const fetchEstablishments = () => async (dispatch, getState, api) => {
     const res = await api.get('/establishment');
     dispatch({
         type: FETCH + ESTABLISHMENT,
+        payload: res.data
+    });
+};
+
+export const fetchEvents = () => async (dispatch, getState, api) => {
+
+    const res = await api.get('/events');
+    dispatch({
+        type: FETCH + EVENTS,
         payload: res.data
     });
 };

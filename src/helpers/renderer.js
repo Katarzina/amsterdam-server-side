@@ -16,9 +16,12 @@ const content = renderToString(
 );
 return `
         <html>
-        <head>        
+        <head>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+            <link rel="stylesheet" href="/assets/main.css">     
+            <link rel="stylesheet" href="https://unpkg.com/react-select@1.2.1/dist/react-select.css">
         </head>
-        <title>kkkkk</title>
+        <title>SSR React Redux applicaton</title>
         <body>
             <div id="root">${content}</div>
             <script>

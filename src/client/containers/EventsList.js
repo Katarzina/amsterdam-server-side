@@ -1,13 +1,11 @@
 import React, {Component} from 'react'
 //import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import { calculateDistance, commaToPointReplace } from '../share/share'
-import {coordinateSelector} from '../reducers/details'
 import {stateSelector as eventSelector} from '../reducers/events'
 
 const Item = ({children}) => ( <td className="item">{children}</td> )
 
-class EventsInfo extends Component {
+class EventsList extends Component {
    /* static propTypes = {
         currencyRate: PropTypes.array,
         rate: PropTypes.object,
@@ -16,19 +14,11 @@ class EventsInfo extends Component {
 
     render() {
 
-        const { events: { eventsSelect = {}}, details: {latitude, longitude} } = this.props
-        let eventsSelectWithCoordinate = {};
-        if (eventsSelect.length > 0) {
-            eventsSelectWithCoordinate = eventsSelect.filter((event) => {
-                return calculateDistance(+commaToPointReplace(event.location.latitude), +commaToPointReplace(event.location.longitude), +commaToPointReplace(latitude), +commaToPointReplace(longitude)) < 1
-            })
-        } else {
-                return null
-        }
+        const { events: { eventsSelect = {}}} = this.props
 
             return (
                 <div>
-                <h1>Info events less 1 km</h1>
+                <h1>Info events</h1>
                 <table>
                     <thead>
                     <tr>
@@ -39,7 +29,7 @@ class EventsInfo extends Component {
                     <tbody>
 
                     {
-                        eventsSelectWithCoordinate.map(({trcid, title, location: {city, zipcode, adress}}, index) => {
+                        eventsSelect.map(({trcid, title, location: {city, zipcode, adress}}, index) => {
                             return <tr key={index + trcid}>
                                 {[title, city + ' ' + zipcode + ' ' + adress].map((item, index) => {
                                     return <Item key={index + item}>{item}</Item>
@@ -57,7 +47,6 @@ class EventsInfo extends Component {
 }
 
 export default connect((state) => ({
-   events: eventSelector(state),
-   details: coordinateSelector(state)
-}))(EventsInfo)
+   events: eventSelector(state)
+}))(EventsList)
 

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {updateFilterEstablishment, updateTitle} from '../action'
-import {stateSelector, currentSelector} from '../reducer/establishment'
+import {stateSelector, currentSelector} from '../reducers/establishment'
 import { filterByTitle } from '../share/share'
 
 class SearchBarTitle extends Component {

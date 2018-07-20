@@ -1,6 +1,6 @@
 import React from "react";
 import { Marker } from "react-google-maps";
-import EstablishmentIcon from "../../icon.svg";
+import Icon from "../Icon";
 
 export default class MarkerMap extends React.Component {
 
@@ -8,7 +8,7 @@ export default class MarkerMap extends React.Component {
         return(
             <Marker
                 position={this.props.location}
-                icon={EstablishmentIcon}
+                icon={Icon}
             >
             </Marker>
         );

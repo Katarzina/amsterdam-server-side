@@ -3,22 +3,30 @@ import { connect } from 'react-redux';
 import { fetchEstablishments } from '../action';
 import {stateSelector, currentSelector} from '../reducers/establishment'
 //import { Helmet } from 'react-helmet';
+import SearchBarTitle from '../containers/SearchBarTitle'
+import SearchBarCity from '../containers/SearchBarCity'
+import SortTable from '../containers/SortTable'
+import EventsInfo from '../containers/EventsInfo'
+import MapContainer from '../containers/MapContainer'
 
 class EstablishmentsList extends Component {
-
-    componentDidMount() {
-        //this.props.fetchEstablishments();
-    }
 
     render() {
         const {establishmentSelect = []} = this.props.establishment;
 
         return (
-            <div>
-                Here's a big list of users:
-                <ul>
-                    { establishmentSelect.map( (restaurant, index) => <li key={restaurant.trcid + index}>{restaurant.title}</li>) }
-                </ul>
+            <div className="container-fluid" >
+            <div className="row">
+            <div className="col-sm-12 col-md-6">
+                <SearchBarTitle />
+                <SearchBarCity />
+                <SortTable />
+            </div>
+            <div className="col-sm-12 col-md-6">
+                <MapContainer />
+                <EventsInfo />
+            </div>
+            </div>
             </div>
         );
     }
@@ -26,7 +34,6 @@ class EstablishmentsList extends Component {
 
 function loadData(store) {
     return store.dispatch(fetchEstablishments());
-    //console.log('i am cool')
 }
 
 function mapStateToProps(state) {

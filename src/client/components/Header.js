@@ -5,11 +5,8 @@ const Header = ({ auth }) => {
 
     return (
         <nav>
-            <div className="nav-wrapper">
-                <Link to="/" className="brand-logo">
-                    React Redux my first SSR application
-                </Link>
-                <ul className="right">
+            <div>
+                <ul className="">
                     <li>
                         <Link to="/establishment">Establishment</Link>
                     </li>
