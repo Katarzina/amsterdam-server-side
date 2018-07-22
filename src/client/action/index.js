@@ -1,7 +1,6 @@
 import {
     UPDATE, ESTABLISHMENT, FILTER, LOAD, INFO, COORDINATE, TITLE, FETCH, EVENTS
 } from '../constants'
-//import axios from 'axios'
 
 const A = (type) => (payload) => ({ type, payload });
 

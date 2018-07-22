@@ -3017,11 +3017,6 @@ var INFO = exports.INFO = '_INFO';
 var COORDINATE = exports.COORDINATE = '_COORDINATE';
 var TITLE = exports.TITLE = '_TITLE';
 var CITY = exports.CITY = '_CITY';
-var USERS = exports.USERS = '_USERS';
-
-// DATA
-var DATA_ESTABLISHMENT = exports.DATA_ESTABLISHMENT = './data/establishment-data.json';
-var DATA_EVENTS = exports.DATA_EVENTS = './events-data.json';
 
 /***/ }),
 /* 79 */
@@ -8750,8 +8745,6 @@ exports.fetchEvents = exports.fetchEstablishments = exports.receiveQuery = expor
 var _constants = __webpack_require__(78);
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
-//import axios from 'axios'
 
 var A = function A(type) {
     return function (payload) {
@@ -60949,7 +60942,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactGoogleMaps = __webpack_require__(605);
 
-var _Icon = __webpack_require__(831);
+var _Icon = __webpack_require__(832);
 
 var _Icon2 = _interopRequireDefault(_Icon);
 
@@ -60971,7 +60964,7 @@ var MarkerMap = function (_React$Component) {
     }
 
     _createClass(MarkerMap, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             return _react2.default.createElement(_reactGoogleMaps.Marker, {
                 position: this.props.location,
@@ -60986,7 +60979,8 @@ var MarkerMap = function (_React$Component) {
 exports.default = MarkerMap;
 
 /***/ }),
-/* 831 */
+/* 831 */,
+/* 832 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -5,9 +5,6 @@ import createStore from './helpers/createStore'
 import { matchRoutes } from 'react-router-config';
 import Routes from './client/Routes';
 import proxy from 'express-http-proxy'
-/*import React from 'react'
-import { renderToString } from 'react-dom/server';
-import Home from './client/component/Home';*/
 
 const app = express();
 
