@@ -6,7 +6,10 @@ const Header = ({ auth }) => {
     return (
         <nav>
             <div>
-                <ul className="">
+                <ul className="nav inline-navbar">
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
                     <li>
                         <Link to="/establishment">Establishment</Link>
                     </li>

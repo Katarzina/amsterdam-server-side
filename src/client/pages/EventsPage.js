@@ -7,9 +7,9 @@ import EventsList from '../containers/EventsList'
 
 class EventsPage extends Component {
 
-    /*componentDidMount() {
+    componentDidMount() {
         this.props.fetchEvents();
-    }*/
+    }
 
     head() {
         return (

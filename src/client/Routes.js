@@ -8,14 +8,14 @@ export default [
     {
         ...AppRoutes,
         routes: [
-            {
+           {
                 ...HomePage,
                 path: '/',
                 exact: true
             },
             {
                 ...EstablishmentPage,
-                path: '/establishment'
+                path: '/establishment',
             },
             {
                 ...EventsPage,

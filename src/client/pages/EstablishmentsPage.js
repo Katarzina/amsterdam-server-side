@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchEstablishments } from '../action';
+import { fetchEstablishments, fetchEvents } from '../action';
 import {stateSelector, currentSelector} from '../reducers/establishment'
 import { Helmet } from 'react-helmet';
 import SearchBarTitle from '../containers/SearchBarTitle'
@@ -11,9 +11,10 @@ import MapContainer from '../containers/MapContainer'
 
 class EstablishmentsList extends Component {
 
-    /*componentDidMount() {
+    componentDidMount() {
         this.props.fetchEstablishments();
-    }*/
+        this.props.fetchEvents();
+    }
 
     head() {
         return (
@@ -58,7 +59,7 @@ function mapStateToProps(state) {
 
 export default {
     loadData,
-    component: connect(mapStateToProps, {fetchEstablishments})(EstablishmentsList)
+    component: connect(mapStateToProps, {fetchEstablishments, fetchEvents})(EstablishmentsList)
 }
 
 

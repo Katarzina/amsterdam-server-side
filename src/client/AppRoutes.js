@@ -7,12 +7,12 @@ const AppRoutes = ({ route }) => {
     return (
         <div>
             <Header />
-            {renderRoutes(route.routes)}
+            <div>{renderRoutes(route.routes)}</div>
         </div>
     );
 };
 
 export default {
     component: AppRoutes,
-    loadData: ({ dispatch }) => dispatch(fetchEstablishments(), fetchEvents()),
+    loadData: ({ dispatch }) => dispatch(fetchEstablishments()),
 };

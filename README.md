@@ -12,6 +12,8 @@ Install dependencies.
 
 2. Run json server for data 
 
+npm install -g json-server
+
 Change path cd /src/client/data 
 
 Run `json-server --watch db.json --port 3004`
