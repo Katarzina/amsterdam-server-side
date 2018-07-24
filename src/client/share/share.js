@@ -1,4 +1,6 @@
 // latitude longitude to km
+import { _ , includes } from "lodash";
+
 export const calculateDistance = (lat1, lon1, lat2, lon2) => {
     const R = 6371; // km
     let dLat = toRad(lat2-lat1);
@@ -20,5 +22,22 @@ export let filterByTitle = ( data, value ) => {
     return data.filter(({title}) => {
         return title.toLowerCase().includes(value);
     })
+}
+
+export const uniqueData = ( dataFromJsonObject ) => {
+
+    let uniqueSet = [];
+
+    let checkSetOnValue = ( uniqueSet, value) => {
+        let flag = false;
+        uniqueSet.forEach( item => (_.includes(item, value)) ? flag = true : null)
+        return flag
+    }
+
+    dataFromJsonObject.forEach ( (item, index) => {
+            (index === 0) ? uniqueSet.push(item) : null;
+            ( checkSetOnValue(uniqueSet, item.trcid )) ? null : uniqueSet.push(item);
+        })
+    return uniqueSet;
 }
 

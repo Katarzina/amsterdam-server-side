@@ -28,7 +28,7 @@ class EventsList extends Component {
 
                     {
                         eventsSelect.map(({trcid, title, location: {city, zipcode, adress}}, index) => {
-                            return <tr key={index + trcid}>
+                            return <tr key={trcid}>
                                 {[title, city + ' ' + zipcode + ' ' + adress].map((item, index) => {
                                     return <Item key={index + item}>{item}</Item>
                                 })}

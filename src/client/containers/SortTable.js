@@ -12,7 +12,7 @@ const Item = ({children}) => ( <td className="item">{children}</td> )
 class SortTable extends Component {
     static propTypes = {
         loadInfoEstablishment: PropTypes.func,
-        establishmentSelect: PropTypes.object,
+        establishmentSelect: PropTypes.array,
         updateArrayEstablishment: PropTypes.func,
         loadCoordinate: PropTypes.func,
         restaurantDetails: PropTypes.object
@@ -21,6 +21,7 @@ class SortTable extends Component {
     sortedCondition = { location: { zipcode: true }, dates: { startdate: true }  }
 
     sort = (level1,level2) => {
+
         const { establishmentSelect, updateArrayEstablishment } = this.props
 
        // establishmentSelect.forEach( (item) => console.log(item.dates.startdate, typeof item.dates.startdate));
@@ -98,10 +99,10 @@ class SortTable extends Component {
 
                     {
                         establishmentSelect.map( ({trcid, title, location: {city, zipcode, adress, latitude, longitude}, dates: { startdate }, media, urls },index) => {
-                         return <tr key={index + trcid} onClick={this.tableHandle.bind(this, Object.assign({latitude} , {longitude} ), Object.assign( {title}, {city}, {adress}, { zipcode }, { media }, { urls }) )}>
-                           {[title, city, zipcode, adress, startdate].map((item,index) => {
-                               return <Item key={index}>{item}</Item>
-                           })}
+                            return <tr key={trcid} onClick={this.tableHandle.bind(this, Object.assign({latitude} , {longitude} ), Object.assign( {title}, {city}, {adress}, { zipcode }, { media }, { urls }) )}>
+                            {[title, city, zipcode, adress, startdate].map((item,index) => {
+                                return <Item key={index}>{item}</Item>
+                            })}
 
                            </tr>
                        })

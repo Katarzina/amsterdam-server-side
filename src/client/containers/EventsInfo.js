@@ -23,7 +23,7 @@ class EventsInfo extends Component {
                 return calculateDistance(+commaToPointReplace(event.location.latitude), +commaToPointReplace(event.location.longitude), +commaToPointReplace(latitude), +commaToPointReplace(longitude)) < 1
             })
         } else {
-                return null
+            return null
         }
 
             return (
@@ -40,7 +40,7 @@ class EventsInfo extends Component {
 
                     {
                         eventsSelectWithCoordinate.map(({trcid, title, location: {city, zipcode, adress}}, index) => {
-                            return <tr key={index + trcid}>
+                            return <tr key={trcid}>
                                 {[title, city + ' ' + zipcode + ' ' + adress].map((item, index) => {
                                     return <Item key={index + item}>{item}</Item>
                                 })}

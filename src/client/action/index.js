@@ -1,6 +1,7 @@
 import {
-    UPDATE, ESTABLISHMENT, FILTER, LOAD, INFO, COORDINATE, TITLE, FETCH, EVENTS
+    UPDATE, ESTABLISHMENT, FILTER, LOAD, INFO, COORDINATE, TITLE, FETCH, EVENTS, CORRECT
 } from '../constants'
+import { uniqueData } from '../share/share'
 
 const A = (type) => (payload) => ({ type, payload });
 
@@ -22,19 +23,14 @@ export const receiveQuery = (type, payload) => ({
 export const fetchEstablishments = () => async (dispatch, getState, api) => {
 
     const res = await api.get('/establishment');
-    dispatch({
-        type: FETCH + ESTABLISHMENT,
-        payload: res.data
-    });
+
+    dispatch(receiveQuery(FETCH + ESTABLISHMENT, uniqueData(res.data)));
 };
 
 export const fetchEvents = () => async (dispatch, getState, api) => {
 
     const res = await api.get('/events');
-    dispatch({
-        type: FETCH + EVENTS,
-        payload: res.data
-    });
+    dispatch(receiveQuery(FETCH + EVENTS, uniqueData(res.data)));
 };
 
 

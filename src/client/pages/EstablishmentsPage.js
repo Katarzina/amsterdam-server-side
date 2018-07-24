@@ -20,14 +20,12 @@ class EstablishmentsList extends Component {
         return (
             <Helmet>
                 <title>Establishment App Loaded</title>
-                <description>Establishment App Loaded</description>
                 <meta property="og:title" content="Establishment App" />
             </Helmet>
         );
     }
 
     render() {
-        const {establishmentSelect = []} = this.props.establishment;
 
         return (
             <div className="container-fluid" >
